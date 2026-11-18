@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { news } from '../data/news.js'
 import { Chips, PageHeader } from '../components/ui.jsx'
 import s from './Content.module.css'
+import { ArrowUpRight } from 'lucide-react'
 
 const CATEGORIES = ['Semua', ...new Set(news.map((n) => n.category))].map((c) => [c, c])
 
@@ -57,7 +58,7 @@ export default function News() {
                   <h2>{n.title}</h2>
                   <p>{n.summary}</p>
                   <a href={n.url} target="_blank" rel="noopener">
-                    Baca dari {n.source} <span aria-hidden="true">↗</span>
+                    Baca dari {n.source} <ArrowUpRight size={16} aria-hidden="true" />
                     <span className="sr-only"> (membuka tab baru)</span>
                   </a>
                 </div>
