@@ -49,3 +49,12 @@ Tampilan mengikuti prototipe KADAR v3.2; struktur project, routing, data, dan lo
 - Aset logo dan GIF intro ada di `public/assets/`.
 - Navbar pill liquid glass, chip jam, dan tombol tema ada di `components/Layout.jsx`; intro 2 tahap di `components/Intro.jsx`.
 - Komponen bersama (judul bagian, chip, kartu saran, efek `Reveal`) ada di `components/ui.jsx`.
+
+
+## Sumber Data
+
+Data kualitas udara, konsentrasi gas polutan, dan parameter cuaca pada aplikasi ini bersumber dari layanan API publik:
+* [Open-Meteo Air Quality API](https://open-meteo.com/)
+* [World Air Quality Index (AQICN)](https://aqicn.org/)
+
+---
