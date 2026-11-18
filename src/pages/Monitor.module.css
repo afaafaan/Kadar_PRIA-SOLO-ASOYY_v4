@@ -28,16 +28,52 @@
   box-shadow: var(--shadow);
 }
 
-.panelTop { display: flex; justify-content: space-between; align-items: center; }
+.cityPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.panelTop { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.mapKicker {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+}
+
+.mapKicker {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+}
+
+/* Deskripsi halaman Air Monitor */
+.monitorIntro {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 .panelTop h2,
-.cityPanel h2 { margin: 6px 0 0; font: 800 19px var(--font-head); }
+.cityPanel h2 { 
+  margin: 6px 0 0; 
+  font: 800 21px var(--font-head); 
+}
 
 .demoPill {
   padding: 8px 11px;
   border-radius: 30px;
   background: #fff3df;
   color: #cb842d;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 0.12em;
   font-weight: 800;
 }
@@ -81,7 +117,20 @@
 }
 .marker[data-selected] { scale: 1.18; outline: 3px solid var(--orange); outline-offset: 1px; }
 
-.legend { display: flex; align-items: center; gap: 16px; margin-top: 16px; font-size: 9px; color: var(--muted); }
+.legend { 
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  margin-top: 16px; 
+  font-size: 13px; 
+  color: var(--muted); 
+}
+
+.legend i {
+  width: 11px;
+  height: 11px;
+}
+
 .legendDot { display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; }
 .lgGood { background: var(--aqi-good); }
 .lgModerate { background: var(--aqi-moderate); }
@@ -110,12 +159,20 @@
   font-size: 11px;
 }
 
-.list { max-height: 350px; overflow: auto; }
+.list { 
+  flex: 1;
+  min-height: 0;
+  max-height: 450px; 
+  overflow-y: auto;
+  overflow-x: hidden; 
+}
+
 .row {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
+  min-width: 0;
   padding: 12px 3px;
   border: 0;
   border-bottom: 1px solid var(--line);
@@ -127,10 +184,31 @@
 .row:hover,
 .row[aria-pressed='true'] { background: var(--surface2); }
 .row:hover { transform: translateX(4px); }
-.rowName { display: block; flex: 1; font-size: 11px; font-weight: 700; }
-.rowName small { display: block; margin-top: 3px; font-size: 8px; font-weight: 400; color: var(--muted); }
-.rowAqi { font: 800 15px var(--font-head); }
-.rowState { width: 53px; font-size: 8px; text-align: right; color: var(--muted); }
+.rowName { 
+  display: block; 
+  flex: 1; 
+  font-size: 13px; 
+  font-weight: 700; 
+}
+.rowName small { 
+  display: block; 
+  margin-top: 4px; 
+  font-size: 10px; 
+  font-weight: 500; 
+  color: var(--muted); 
+}
+
+.rowAqi { 
+  font: 800 17px var(--font-head); 
+}
+
+.rowState { 
+  width: 68px; 
+  font-size: 10px;
+  font-weight: 700; 
+  text-align: right; 
+  color: var(--muted); 
+}
 
 .empty { display: grid; gap: 12px; justify-items: start; padding: 12px 3px; font-size: 12px; color: var(--muted); }
 
@@ -143,9 +221,35 @@
   background: var(--surface);
   box-shadow: var(--shadow);
 }
+
+.cityKicker {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+}
+
 .detailMain { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.location h2 { margin: 7px 0; font: 800 25px var(--font-head); }
-.location > span:last-child { font-size: 9px; color: var(--muted); }
+.location h2 { 
+  margin: 7px 0; 
+  font: 800 25px var(--font-head); 
+}
+
+.detailKicker {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.simulationNote {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
 
 .score { display: flex; align-items: center; gap: 13px; }
 .score > strong { font: 800 53px var(--font-head); letter-spacing: -0.06em; font-variant-numeric: tabular-nums; }
@@ -174,16 +278,50 @@
 .adviceIcon.good { background: #e3f7ef; color: #239b70; }
 .adviceIcon.moderate { background: #fff2d9; color: #c68a2c; }
 .adviceIcon.poor { background: #ffebe5; color: #d66b51; }
-.advice b { font-size: 11px; }
-.advice p { margin: 5px 0 0; font-size: 10px; line-height: 1.6; color: var(--muted); }
+
+.adviceText b {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.adviceText p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
 
 .pollutants { display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 18px; }
 .pollutants > div { padding-left: 17px; border-right: 1px solid var(--line); }
 .pollutants > div:first-child { padding-left: 0; }
 .pollutants > div:last-child { border: 0; }
-.pollutants dt { margin-bottom: 7px; font-size: 8px; letter-spacing: 0.12em; color: var(--muted); }
-.pollutants dd { font: 700 15px var(--font-head); font-variant-numeric: tabular-nums; }
-.pollutants small { font: 500 9px var(--font); color: var(--muted); }
+
+.pollutants dt {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.pollutants dt svg {
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+.pollutants dd {
+  font: 800 19px var(--font-head);
+  font-variant-numeric: tabular-nums;
+}
+
+.pollutants small {
+  font: 500 11px var(--font);
+  color: var(--muted);
+}
 
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 20px; }
 
@@ -206,8 +344,46 @@
   .score > strong { font-size: 43px; }
   .pollutants { grid-template-columns: 1fr 1fr; row-gap: 17px; }
   .pollutants > div:nth-child(3) { padding-left: 0; border: 0; }
+  
+  .cityKicker {
+    font-size: 11px;
+  }
+
+  .mapKicker {
+    font-size: 11px;
+  }
+
+  .detailKicker {
+    font-size: 11px;
+  }
+
+  .simulationNote {
+    font-size: 10px;
+  }
+
+  .adviceText b {
+    font-size: 13px;
+  }
+
+  .adviceText p {
+    font-size: 11px;
+  }
+
+  .pollutants dt {
+    font-size: 10px;
+  }
+
+  .pollutants dd {
+    font-size: 17px;
+  }
+
 }
 
 .noArrow::after { content: none !important; display: none !important; }
 .noArrow svg { transition: transform 0.25s; }
 .noArrow:hover svg { transform: translate(4px, -3px); }
+
+.forecastButton {
+  font-size: 14px;
+  font-weight: 700;
+}
