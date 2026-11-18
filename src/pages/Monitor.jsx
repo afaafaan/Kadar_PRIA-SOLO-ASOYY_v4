@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
-import { ArrowUpRight, Baby, Bike, Footprints, LocateFixed, Search, ShieldPlus } from 'lucide-react'
+import { 
+  ArrowUpRight, Baby, Bike, Footprints, LocateFixed, Search, ShieldPlus, 
+  Wind, Cloud, Activity, Thermometer
+} from 'lucide-react'
 import { cities, findCity } from '../data/cities.js'
 import { ACTIVITIES, dominantPollutant, level, nearestCity, num, verdict } from '../lib/aqi.js'
 import { useToast } from '../lib/toast.jsx'
@@ -96,7 +99,9 @@ export default function Monitor() {
     <div className="container page">
       <title>Air Monitor — KADAR Kabar Udara</title>
       <PageHeader crumb="Air Monitor" title={<>Udara setiap kota,<br /><em>dalam satu pandangan.</em></>}>
-        Pilih titik pada peta atau daftar untuk melihat AQI, polutan, dan saran aktivitas.
+        <span className={s.monitorIntro}>
+          Pilih titik pada peta atau daftar untuk melihat AQI, polutan, dan saran aktivitas.
+        </span>
       </PageHeader>
 
       <div className={s.filterRow}>
@@ -117,10 +122,12 @@ export default function Monitor() {
         <div className={s.mapPanel}>
           <div className={s.panelTop}>
             <div>
-              <Kicker>PETA KUALITAS UDARA INDONESIA</Kicker>
-              <h2>Peta interaktif</h2>
-            </div>
-            <span className={s.demoPill}><i aria-hidden="true" /> DATA DEMO</span>
+            <Kicker>
+              <span className={s.mapKicker}>PETA KUALITAS UDARA INDONESIA</span>
+            </Kicker>
+            <h2>Peta interaktif</h2>
+          </div>
+            <span className={s.demoPill}>DATA DEMO</span>
           </div>
           <AirMap cities={visible} selected={city} onSelect={select} />
           <div className={s.legend}>
@@ -133,7 +140,9 @@ export default function Monitor() {
 
         <aside className={s.cityPanel}>
           <div>
-            <Kicker>CITY OVERVIEW</Kicker>
+            <Kicker>
+              <span className={s.cityKicker}>CITY OVERVIEW</span>
+            </Kicker>
             <h2>Pilih kotamu</h2>
           </div>
           <label className={s.search}>
@@ -189,11 +198,17 @@ export default function Monitor() {
       </ActGrid>
 
       <div className={s.actions}>
-        <Link className={`btn btn-primary ${s.noArrow}`} to={`/prakiraan?kota=${city.name}`}>
+        <Link className={`btn btn-primary ${s.noArrow} ${s.forecastButton}`} to={`/prakiraan?kota=${city.name}`}>
           Lihat prediksi kota ini
           <ArrowUpRight size={18} aria-hidden="true" />
         </Link>
-        <button type="button" className="btn" onClick={copyLink}>Salin tautan kota</button>
+        <button
+          type="button"
+          className={`btn ${s.forecastButton}`}
+          onClick={copyLink}
+        >
+          Salin tautan kota
+        </button>
       </div>
     </div>
   )
@@ -209,9 +224,13 @@ function CityDetail({ city }) {
     <Reveal as="section" className={s.detail} aria-labelledby="kota-terpilih">
       <div className={s.detailMain}>
         <div className={s.location}>
-          <Kicker>KONDISI TERPILIH</Kicker>
+          <Kicker>
+            <span className={s.detailKicker}>KOTA TERPILIH</span>
+          </Kicker>
           <h2 id="kota-terpilih">{city.name}, {city.region}</h2>
-          <span>Data simulasi · bukan pengukuran real-time</span>
+          <span className={s.simulationNote}>
+            Data simulasi bukan pengukuran real-time.
+          </span>
         </div>
         <div className={s.score}>
           <strong aria-hidden="true" style={{ color: aqiColor(city.aqi) }}>{shown}</strong>
@@ -225,17 +244,32 @@ function CityDetail({ city }) {
 
       <div className={s.advice}>
         <div className={`${s.adviceIcon} ${s[st.key]}`} aria-hidden="true">{icon}</div>
-        <div>
+        <div className={s.adviceText}>
           <b>{lv.advice}</b>
           <p>{lv.detail}</p>
         </div>
       </div>
 
       <dl className={s.pollutants}>
-        <div><dt>PM2.5</dt><dd>{num.format(city.pm25)} <small>µg/m³</small></dd></div>
-        <div><dt>PM10</dt><dd>{num.format(city.pm10)} <small>µg/m³</small></dd></div>
-        <div><dt>DOMINAN</dt><dd>{dominantPollutant(city)}</dd></div>
-        <div><dt>SUHU</dt><dd>{city.temp}° <small>C</small></dd></div>
+        <div>
+          <dt><Wind size={16} /> PM2.5</dt>
+          <dd>{num.format(city.pm25)} <small>µg/m³</small></dd>
+        </div>
+
+        <div>
+          <dt><Cloud size={16} /> PM10</dt>
+          <dd>{num.format(city.pm10)} <small>µg/m³</small></dd>
+        </div>
+
+        <div>
+          <dt><Activity size={16} /> DOMINAN</dt>
+          <dd>{dominantPollutant(city)}</dd>
+        </div>
+
+        <div>
+          <dt><Thermometer size={16} /> SUHU</dt>
+          <dd>{city.temp}° <small>C</small></dd>
+        </div>
       </dl>
     </Reveal>
   )
