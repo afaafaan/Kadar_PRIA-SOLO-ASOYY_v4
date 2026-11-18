@@ -5,7 +5,8 @@ const SEEN = 'kadar-intro'
 
 // Diputuskan sekali, sebelum React render, supaya <html data-intro> sudah terpasang saat halaman muncul.
 export function shouldPlayIntro() {
-  if (location.pathname !== '/') return false
+  const route = location.hash.replace(/^#/, '') || '/'
+  if (route !== '/') return false
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return false
   try {
     if (sessionStorage.getItem(SEEN)) return false
@@ -64,7 +65,7 @@ export default function Intro({ onDone }) {
   return (
     <div className={`${s.intro} ${leaving ? s.hide : ''}`} role="dialog" aria-modal="true" aria-label="Pembuka KADAR">
       <div className={`${s.stage} ${stage === 1 ? s.on : ''}`}>
-        <img className={s.gif} src="/assets/kadar-intro.gif" alt="KADAR" />
+        <img className={s.gif} src={`${import.meta.env.BASE_URL}assets/kadar-intro.gif`} alt="KADAR" />
       </div>
 
       <div className={`${s.stage} ${stage === 2 ? s.on : ''}`}>

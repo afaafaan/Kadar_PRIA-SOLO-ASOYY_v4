@@ -5,7 +5,7 @@ export default function Logo({ className = '' }) {
   return (
     <img
       className={`${s.logo} ${className}`}
-      src="/assets/kadar-logo.png"
+      src={`${import.meta.env.BASE_URL}assets/kadar-logo.png`}
       alt="KADAR, Kabar Udara"
       width="1293"
       height="300"
