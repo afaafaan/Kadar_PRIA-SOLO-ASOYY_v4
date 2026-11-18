@@ -56,6 +56,10 @@
   border-radius: 6px;
 }
 
+.brandDark img {
+  filter: brightness(0) invert(1);
+}
+
 .nav { justify-self: center; }
 
 .menuButton {
