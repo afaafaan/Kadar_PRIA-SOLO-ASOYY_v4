@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter } from 'react-router'
+import { createHashRouter } from 'react-router''
 import { RouterProvider } from 'react-router/dom'
 import './styles/tokens.css'
 import './styles/base.css'
@@ -14,7 +14,7 @@ if (shouldPlayIntro()) document.documentElement.dataset.intro = ''
 // Home ships in the main bundle; every other page (and Leaflet with it) loads on demand.
 const page = (load) => ({ lazy: async () => ({ Component: (await load()).default }) })
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     Component: Layout,
     HydrateFallback: () => null,
