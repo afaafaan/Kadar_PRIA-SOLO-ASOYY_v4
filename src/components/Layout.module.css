@@ -178,7 +178,10 @@
   border-bottom: 1px solid rgb(255 255 255 / 0.15);
 }
 .footerBrand { display: flex; flex-direction: column; gap: 10px; align-self: start; }
-.footerBrand span { font-size: 9px; color: #8da8c5; }
+.footerBrand span { 
+  font-size: 14px; 
+  color: #8da8c5; 
+}
 .footerLogo {
   width: 125px;
   height: 65px;
@@ -192,13 +195,20 @@
   align-content: start;
 }
 .footerNav a,
-.footerSocial a { font-size: 10px; color: #d5e5f7; }
+.footerSocial a { 
+  font-size: 14px; 
+  color: #d5e5f7; }
 .footerNav a:hover,
-.footerSocial a:hover { color: #ffcc89; }
-.footerSocial { display: flex; flex-direction: column; gap: 12px; }
+.footerSocial a:hover { 
+  color: #ffcc89; }
+.footerSocial { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 14px; }
 .footerSocial span {
   margin-bottom: 4px;
-  font-size: 8px;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.13em;
   color: #8da8c5;
 }
@@ -207,14 +217,14 @@
   justify-content: space-between;
   gap: 20px;
   padding-top: 20px;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   color: #8da8c5;
 }
 .disclaimer {
   max-width: 900px;
   margin: 17px 0 0;
-  font-size: 8px;
+  font-size: 11px;
   line-height: 1.7;
   color: #7892ae;
 }
