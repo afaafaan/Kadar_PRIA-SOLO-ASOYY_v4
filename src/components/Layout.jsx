@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState, ViewTransition } from 'react'
 import { Link, NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router'
-import { ArrowUp, Menu, Moon, Sun } from 'lucide-react'
+import { ArrowUp, Clock3, Menu, Moon, Sun } from 'lucide-react'
 import Logo from './Logo.jsx'
 import Intro from './Intro.jsx'
 import { toggleScheme, useScheme } from '../lib/scheme.js'
@@ -167,7 +167,7 @@ function ClockChip() {
 
   return (
     <div className={s.clock} role="group" aria-label="Tanggal dan waktu lokal">
-      <span className="live-dot" aria-hidden="true" />
+      <Clock3 className={s.clockIcon} size={22} strokeWidth={2} aria-hidden="true" />
       <div>
         <strong className="num">{fmt({ hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</strong>
         <small>{fmt({ weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })} · {zone}</small>
