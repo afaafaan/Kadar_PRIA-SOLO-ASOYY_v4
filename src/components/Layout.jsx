@@ -79,7 +79,11 @@ function Header({ menu }) {
   return (
     <header className={s.header}>
       <div className={s.headerInner}>
-        <Link to="/" className={s.brand} aria-label="KADAR, ke beranda">
+        <Link
+          to="/"
+          className={`${s.brand} ${dark ? s.brandDark : ''}`}
+          aria-label="KADAR, ke beranda"
+        >
           <Logo />
         </Link>
 
