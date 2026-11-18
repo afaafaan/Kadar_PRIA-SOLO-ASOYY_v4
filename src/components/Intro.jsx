@@ -6,7 +6,7 @@ const SEEN = 'kadar-intro'
 // Diputuskan sekali, sebelum React render, supaya <html data-intro> sudah terpasang saat halaman muncul.
 export function shouldPlayIntro() {
   const route = location.hash.replace(/^#/, '') || '/'
-    if (route !== '/') return false
+  if (route !== '/') return false
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return false
   try {
     if (sessionStorage.getItem(SEEN)) return false
