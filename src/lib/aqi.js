@@ -1,34 +1,41 @@
 // Single source of truth for AQI categories, advice and forecast helpers.
 // Categories follow the US EPA AQI, labelled in Indonesian.
 
+
 export const LEVELS = [
   {
     key: 'good', max: 50, label: 'Baik',
+    color: '#269B70',
     advice: 'Aman untuk beraktivitas di luar ruangan.',
     detail: 'Kualitas udara memuaskan dan risikonya kecil.',
   },
   {
     key: 'moderate', max: 100, label: 'Sedang',
+    color: '#D6A52C',
     advice: 'Sebagian besar orang tetap bisa beraktivitas seperti biasa.',
     detail: 'Orang yang sangat sensitif sebaiknya mengurangi aktivitas berat yang lama di luar ruangan.',
   },
   {
     key: 'usg', max: 150, label: 'Tidak sehat bagi kelompok sensitif',
+    color: '#E98238',
     advice: 'Kelompok sensitif sebaiknya membatasi aktivitas berat di luar.',
     detail: 'Anak-anak, lansia, serta penderita asma atau penyakit jantung lebih mudah terdampak. Orang lain umumnya masih aman.',
   },
   {
     key: 'unhealthy', max: 200, label: 'Tidak sehat',
+    color: '#D94B4B',
     advice: 'Kurangi aktivitas berat di luar ruangan.',
     detail: 'Semua orang bisa mulai merasakan dampaknya. Kelompok sensitif sebaiknya tetap di dalam ruangan.',
   },
   {
     key: 'very', max: 300, label: 'Sangat tidak sehat',
+    color: '#9562B5',
     advice: 'Hindari aktivitas di luar ruangan.',
     detail: 'Risiko kesehatan meningkat untuk semua orang. Tutup jendela dan pakai masker jika harus keluar.',
   },
   {
     key: 'hazardous', max: Infinity, label: 'Berbahaya',
+    color: '#8B354C',
     advice: 'Tetap di dalam ruangan.',
     detail: 'Kondisi darurat kesehatan. Ikuti arahan resmi pemerintah setempat.',
   },
