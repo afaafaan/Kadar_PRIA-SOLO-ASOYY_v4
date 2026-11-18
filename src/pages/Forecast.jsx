@@ -25,13 +25,17 @@ export default function Forecast() {
     <div className="container page">
       <title>Air Forecast — KADAR Kabar Udara</title>
       <PageHeader crumb="Air Forecast" title={<>Kenali pola udara,<br /><em>rencanakan harimu.</em></>}>
-        Simulasi perubahan AQI 24 jam ke depan. Warna garis menunjukkan kategori udara.
+        <span className={s.forecastIntro}>
+          Simulasi perubahan AQI 24 jam ke depan. Warna garis menunjukkan kategori udara.
+        </span>
       </PageHeader>
 
       <Reveal as="section" className={s.card} aria-labelledby="judul-prakiraan">
         <div className={s.toolbar}>
           <div>
-            <Kicker>PREDIKSI KUALITAS UDARA</Kicker>
+            <Kicker>
+              <span className={s.forecastKicker}>PREDIKSI KUALITAS UDARA</span>
+            </Kicker>
             <h2 id="judul-prakiraan">{name} · 24 jam ke depan</h2>
           </div>
           <label className={s.select}>
