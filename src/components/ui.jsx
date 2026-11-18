@@ -95,11 +95,14 @@ export function ActGrid({ children, className = '' }) {
   return <div className={`${s.actGrid} ${className}`}>{children}</div>
 }
 
-export function Act({ title, badge, tone, children }) {
+export function Act({ title, icon: Icon, badge, tone, children }) {
   return (
     <div className={s.act}>
       {badge && <em className={s[tone]}>{badge}</em>}
-      <b>{title}</b>
+      <b>
+        {Icon && <Icon size={16} aria-hidden="true" />}
+        {title}
+      </b>
       <span>{children}</span>
     </div>
   )
