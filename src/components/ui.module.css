@@ -100,7 +100,13 @@
   transition: 0.25s;
 }
 .act:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.act b { display: block; font-size: 13px; }
+.act b {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+.act b svg { flex-shrink: 0; color: var(--orange); }
 .act span { font-size: 12px; color: var(--muted); }
 .act em {
   float: right;
