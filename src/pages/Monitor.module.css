@@ -207,3 +207,7 @@
   .pollutants { grid-template-columns: 1fr 1fr; row-gap: 17px; }
   .pollutants > div:nth-child(3) { padding-left: 0; border: 0; }
 }
+
+.noArrow::after { content: none !important; display: none !important; }
+.noArrow svg { transition: transform 0.25s; }
+.noArrow:hover svg { transform: translate(4px, -3px); }
