@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
-import { LocateFixed, Search } from 'lucide-react'
+import { ArrowUpRight, Baby, Bike, Footprints, LocateFixed, Search, ShieldPlus } from 'lucide-react'
 import { cities, findCity } from '../data/cities.js'
 import { ACTIVITIES, dominantPollutant, level, nearestCity, num, verdict } from '../lib/aqi.js'
 import { useToast } from '../lib/toast.jsx'
@@ -21,7 +21,7 @@ const matches = (c, filter, query) =>
   (filter === 'all' || band(c.aqi).key === filter) &&
   c.name.toLowerCase().includes(query.trim().toLowerCase())
 
-const ACTIVITY_ICON = { run: '🏃', bike: '🚲', kids: '🧒', mask: '😷' }
+const ACTIVITY_ICON = { run: Footprints, bike: Bike, kids: Baby, mask: ShieldPlus }
 const VERDICT_TONE = { ok: 'ok', caution: 'mid', avoid: 'no' }
 const VERDICT_NOTE = {
   ok: 'Silakan, kondisi mendukung.',
@@ -175,7 +175,13 @@ export default function Monitor() {
         {ACTIVITIES.map((a) => {
           const v = verdict(city.aqi, a)
           return (
-            <Act key={a.id} title={`${ACTIVITY_ICON[a.id]} ${a.name}`} badge={v.label} tone={VERDICT_TONE[v.key]}>
+            <Act
+              key={a.id}
+              title={a.name}
+              icon={ACTIVITY_ICON[a.id]}
+              badge={v.label}
+              tone={VERDICT_TONE[v.key]}
+            >
               {VERDICT_NOTE[v.key]}
             </Act>
           )
@@ -183,7 +189,10 @@ export default function Monitor() {
       </ActGrid>
 
       <div className={s.actions}>
-        <Link className="btn btn-primary" to={`/prakiraan?kota=${city.name}`}>Lihat prediksi kota ini</Link>
+        <Link className={`btn btn-primary ${s.noArrow}`} to={`/prakiraan?kota=${city.name}`}>
+          Lihat prediksi kota ini
+          <ArrowUpRight size={18} aria-hidden="true" />
+        </Link>
         <button type="button" className="btn" onClick={copyLink}>Salin tautan kota</button>
       </div>
     </div>
