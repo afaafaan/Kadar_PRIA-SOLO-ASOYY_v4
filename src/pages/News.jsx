@@ -71,8 +71,7 @@ export default function News() {
       </div>
 
       <p className={s.note}>
-        Konten editorial demo yang mengarah ke referensi lembaga, bukan feed real-time. Ganti
-        ilustrasi dengan foto berita berlisensi sebelum final.
+        Konten editorial demo yang mengarah ke referensi lembaga, bukan feed real-time.
       </p>
     </div>
   )
