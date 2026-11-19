@@ -26,7 +26,6 @@ export default function News() {
     <div className="container page">
       <title>News — KADAR Kabar Udara</title>
       <PageHeader crumb="News" title={<>Kabar terbaru untuk<br /><em>bumi yang lebih sehat.</em></>}>
-        Isu udara dan lingkungan dengan tautan ke sumber yang dapat ditelusuri.
       </PageHeader>
 
       <div className={s.chipRow}>
