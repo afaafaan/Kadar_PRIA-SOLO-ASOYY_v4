@@ -1,11 +1,9 @@
-/* Gaya halaman berisi teks: News, Education, About. */
-
 .chipRow { margin-bottom: 16px; }
 
-/* ---------- News ---------- */
 .newsGrid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 17px; }
 
 .newsCard {
+  position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -13,23 +11,24 @@
   transition: 0.25s;
 }
 .newsCard:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.newsCard:focus-within { box-shadow: var(--shadow); }
 
 .newsArt {
-  display: flex;
-  align-items: end;
   position: relative;
   height: 190px;
-  padding: 20px;
   overflow: hidden;
-  font: 800 19px var(--font-head);
-  letter-spacing: -0.03em;
+  background: var(--surface2);
+}
+.newsArt img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.5s;
 }
-.newsCard:hover .newsArt { transform: scale(1.04); }
-.newsArt b { position: relative; z-index: 1; }
-.art-blue { background: linear-gradient(135deg, #c6e1ff, #5c9ce4); color: #124b8d; }
-.art-green { background: #d7eee2; color: #276a53; }
-.art-orange { background: #fbe4c9; color: #925a25; }
+.newsCard:hover .newsArt img { transform: scale(1.05); }
 
 .newsBody { padding: 20px; }
 .newsMeta { 
@@ -53,17 +52,26 @@
   line-height: 1.75; 
   color: var(--muted); 
 }
-.newsBody a { 
+.newsLink {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 13px; 
-  font-weight: 800; 
-  color: var(--brand); }
-.newsBody a svg { 
-  color: var(--orange);
-  flex-shrink: 0;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand);
 }
+
+.newsLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 12px;
+}
+.newsLink:focus-visible { outline: none; }
+.newsLink:focus-visible::after { outline: 3px solid var(--brand); outline-offset: -3px; }
+.newsLink svg { flex-shrink: 0; transition: transform 0.25s; }
+.newsCard:hover .newsLink svg { transform: translateX(4px); }
 
 .note { 
   margin-top: 20px; 

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { news } from '../data/news.js'
 import { Chips, PageHeader } from '../components/ui.jsx'
 import s from './Content.module.css'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 const CATEGORIES = ['Semua', ...new Set(news.map((n) => n.category))].map((c) => [c, c])
 
@@ -47,8 +47,12 @@ export default function News() {
                 key={n.title}
                 className={`${s.newsCard} ${i === 0 && category === 'Semua' ? s.newsFeature : ''}`}
               >
-                <div className={`${s.newsArt} ${s[`art-${n.art}`]}`} aria-hidden="true">
-                  <b>{n.banner[0]}<br />{n.banner[1]}</b>
+                <div className={s.newsArt}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}assets/news/${n.image}`}
+                    alt={n.imageAlt}
+                    loading="lazy"
+                  />
                 </div>
                 <div className={s.newsBody}>
                   <div className={s.newsMeta}>
@@ -57,8 +61,8 @@ export default function News() {
                   </div>
                   <h2>{n.title}</h2>
                   <p>{n.summary}</p>
-                  <a href={n.url} target="_blank" rel="noopener">
-                    Baca dari {n.source} <ArrowUpRight size={16} aria-hidden="true" />
+                  <a className={s.newsLink} href={n.url} target="_blank" rel="noopener">
+                    Baca dari {n.source} <ArrowRight size={16} aria-hidden="true" />
                     <span className="sr-only"> (membuka tab baru)</span>
                   </a>
                 </div>

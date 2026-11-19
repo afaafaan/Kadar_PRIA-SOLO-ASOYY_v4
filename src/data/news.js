@@ -1,4 +1,4 @@
-// Artikel sama dengan prototipe. `art` (warna ilustrasi) dan `banner` (teks di ilustrasi) dipakai kartu berita di News.jsx.
+// Artikel sama dengan prototipe. `image` (file di public/assets/news/) dan `imageAlt` dipakai kartu berita di News.jsx.
 export const news = [
   {
     title: 'Polusi udara dan dampaknya bagi kesehatan: mengapa kita perlu peduli?',
@@ -7,8 +7,8 @@ export const news = [
     url: 'https://www.who.int/health-topics/air-pollution',
     source: 'WHO',
     minutes: 5,
-    art: 'blue',
-    banner: ['UDARA BERSIH', 'HAK KITA'],
+    image: 'polusi-kesehatan.jpg',
+    imageAlt: 'Asap dari cerobong pabrik menyelimuti kawasan permukiman di lembah',
   },
   {
     title: 'Transportasi rendah emisi sebagai bagian dari solusi udara bersih',
@@ -17,8 +17,8 @@ export const news = [
     url: 'https://www.unep.org/explore-topics/air',
     source: 'UNEP',
     minutes: 4,
-    art: 'green',
-    banner: ['LANGKAH KECIL', 'DAMPAK BESAR'],
+    image: 'transportasi.jpg',
+    imageAlt: 'Kendaraan di jalan raya yang diselimuti kabut asap polusi',
   },
   {
     title: 'Mengenal PM2.5, partikel halus yang perlu diwaspadai',
@@ -27,8 +27,8 @@ export const news = [
     url: 'https://www.epa.gov/pm-pollution/particulate-matter-pm-basics',
     source: 'US EPA',
     minutes: 3,
-    art: 'orange',
-    banner: ['KENALI POLUTAN', 'DI SEKITARMU'],
+    image: 'pm25.jpg',
+    imageAlt: 'Perbandingan ukuran partikel PM2.5 dan PM10 dengan sehelai rambut manusia',
   },
   {
     title: 'Dasar-dasar AQI: cara membaca indeks kualitas udara',
@@ -37,18 +37,18 @@ export const news = [
     url: 'https://www.airnow.gov/aqi/aqi-basics/',
     source: 'AirNow',
     minutes: 4,
-    art: 'blue',
-    banner: ['BACA ANGKANYA', 'PAHAMI ARTINYA'],
+    image: 'aqi.jpg',
+    imageAlt: 'Gedung-gedung pencakar langit yang tertutup kabut polusi udara',
   },
   {
     title: 'Kebakaran hutan dan lahan: dampaknya pada kualitas udara',
     category: 'Aksi',
     summary: 'Asap karhutla dapat menurunkan kualitas udara hingga ke wilayah yang jauh.',
-    url: 'https://www.unep.org/explore-topics/air',
-    source: 'UNEP',
+    url: 'https://www.um-surabaya.ac.id/article/pakar-hukum-umsura-karhutla-tak-hanya-soal-asap-ada-tanggung-jawab-internasional-indonesia',
+    source: 'UM-Surabaya',
     minutes: 5,
-    art: 'orange',
-    banner: ['ASAP', 'TAK KENAL BATAS'],
+    image: 'karhutla.jpg',
+    imageAlt: 'Petugas memadamkan kebakaran lahan pada malam hari dengan asap tebal',
   },
   {
     title: 'Udara dalam ruangan: apa yang bisa kita lakukan?',
@@ -57,7 +57,7 @@ export const news = [
     url: 'https://www.who.int/health-topics/air-pollution',
     source: 'WHO',
     minutes: 3,
-    art: 'green',
-    banner: ['UDARA SEHAT', 'MULAI DARI RUMAH'],
+    image: 'udara-dalam-ruangan.jpg',
+    imageAlt: 'Asap mengepul dari cerobong atap permukiman padat',
   },
 ]
